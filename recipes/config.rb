@@ -64,22 +64,22 @@ end
 if node['cassandra']['version'][0..2] <= '2.0'
   ruby_block 'smash >= 2.1-attributes' do
     block do
-      node.rm('cassandra', 'config', 'broadcast_rpc_address')
-      node.rm('cassandra', 'config', 'tombstone_failure_threshold')
-      node.rm('cassandra', 'config', 'tombstone_warn_threshold')
-      node.rm('cassandra', 'config', 'sstable_preemptive_open_interval_in_mb')
-      node.rm('cassandra', 'config', 'memtable_allocation_type')
-      node.rm('cassandra', 'config', 'index_summary_capacity_in_mb')
-      node.rm('cassandra', 'config', 'index_summary_resize_interval_in_minutes')
-      node.rm('cassandra', 'config', 'concurrent_counter_writes')
-      node.rm('cassandra', 'config', 'counter_cache_save_period')
-      node.rm('cassandra', 'config', 'counter_cache_size_in_mb')
-      node.rm('cassandra', 'config', 'counter_write_request_timeout_in_ms')
-      node.rm('cassandra', 'config', 'commit_failure_policy')
-      node.rm('cassandra', 'config', 'cas_contention_timeout_in_ms')
-      node.rm('cassandra', 'config', 'batch_size_warn_threshold_in_kb')
-      node.rm('cassandra', 'config', 'batchlog_replay_throttle_in_kb')
-      node.rm('cassandra', 'config', 'permissions_validity_in_ms')
+      node.default['cassandra']['config'].delete('broadcast_rpc_address')
+      node.default['cassandra']['config'].delete('tombstone_failure_threshold')
+      node.default['cassandra']['config'].delete('tombstone_warn_threshold')
+      node.default['cassandra']['config'].delete('sstable_preemptive_open_interval_in_mb')
+      node.default['cassandra']['config'].delete('memtable_allocation_type')
+      node.default['cassandra']['config'].delete('index_summary_capacity_in_mb')
+      node.default['cassandra']['config'].delete('index_summary_resize_interval_in_minutes')
+      node.default['cassandra']['config'].delete('concurrent_counter_writes')
+      node.default['cassandra']['config'].delete('counter_cache_save_period')
+      node.default['cassandra']['config'].delete('counter_cache_size_in_mb')
+      node.default['cassandra']['config'].delete('counter_write_request_timeout_in_ms')
+      node.default['cassandra']['config'].delete('commit_failure_policy')
+      node.default['cassandra']['config'].delete('cas_contention_timeout_in_ms')
+      node.default['cassandra']['config'].delete('batch_size_warn_threshold_in_kb')
+      node.default['cassandra']['config'].delete('batchlog_replay_throttle_in_kb')
+      node.default['cassandra']['config'].delete('permissions_validity_in_ms')
     end
   end
 end
@@ -88,13 +88,13 @@ end
 if node['cassandra']['version'][0..2] >= '2.1'
   ruby_block 'smash < 2.0-attributes' do
     block do
-      node.rm('cassandra', 'config', 'memtable_flush_queue_size')
-      node.rm('cassandra', 'config', 'in_memory_compaction_limit_in_mb')
-      node.rm('cassandra', 'config', 'concurrent_compactors')
-      node.rm('cassandra', 'config', 'multithreaded_compaction')
-      node.rm('cassandra', 'config', 'compaction_preheat_key_cache')
-      node.rm('cassandra', 'config', 'native_transport_min_threads')
-      node.rm('cassandra', 'config', 'native_transport_max_threads')
+      node.default['cassandra']['config'].delete('memtable_flush_queue_size')
+      node.default['cassandra']['config'].delete('in_memory_compaction_limit_in_mb')
+      node.default['cassandra']['config'].delete('concurrent_compactors')
+      node.default['cassandra']['config'].delete('multithreaded_compaction')
+      node.default['cassandra']['config'].delete('compaction_preheat_key_cache')
+      node.default['cassandra']['config'].delete('native_transport_min_threads')
+      node.default['cassandra']['config'].delete('native_transport_max_threads')
 
     end
   end
