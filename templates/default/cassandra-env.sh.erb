@@ -286,7 +286,7 @@ JVM_OPTS="$JVM_OPTS -XX:+UseTLAB"
 <% end -%>
 
 <% if node['cassandra']['jvm'] && node['cassandra']['jvm']['scavenge_before_full_gc'] -%>
-  JVM_OPTS="$JVM_OPTS -XX:+ScavengeBeforeFullGC
+  JVM_OPTS="$JVM_OPTS -XX:+ScavengeBeforeFullGC"
 <% end -%>
 
 <% if node['cassandra']['jvm'] && node['cassandra']['jvm']['perf_disable_shared_mem'] -%>
