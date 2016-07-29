@@ -229,7 +229,7 @@ JVM_OPTS="$JVM_OPTS -Xmx${MAX_HEAP_SIZE}"
 # -Xmn
 <% if node['cassandra']['jvm'] && node['cassandra']['jvm']['g1'] -%>
   # Skipping use of -Xmn due to G1 use
-<% else if node['cassandra']['jvm'] && node['cassandra']['jvm']['xmn'] -%>
+<% elsif node['cassandra']['jvm'] && node['cassandra']['jvm']['xmn'] -%>
 # (set via node['cassandra']['jvm']['xmn'])
 JVM_OPTS="$JVM_OPTS -Xmn<%= node['cassandra']['jvm']['xmn'] %>"
 <% else -%>
