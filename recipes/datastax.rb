@@ -57,6 +57,7 @@ node.default['cassandra']['commitlog_dir'] = ::File.join(node['cassandra']['root
 node.default['cassandra']['saved_caches_dir'] = ::File.join(node['cassandra']['root_dir'], 'saved_caches')
 
 include_recipe 'cassandra-dse::user'
+include_recipe 'cassandra-dse::claim_dirs'
 include_recipe 'cassandra-dse::repositories'
 
 # setup repository and install datastax C* packages

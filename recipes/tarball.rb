@@ -39,6 +39,9 @@ node.default['cassandra']['saved_caches_dir'] = ::File.join(node['cassandra']['r
 # manage C* service user
 include_recipe 'cassandra-dse::user'
 
+# claim ownership of data dirs if needed
+include_recipe 'cassandra-dse::claim_dirs'
+
 require 'tmpdir'
 
 td = Dir.tmpdir
