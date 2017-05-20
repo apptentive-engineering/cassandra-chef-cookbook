@@ -1,5 +1,7 @@
 # Override the default (7) set in attributes/default
 force_default['java']['jdk_version'] = 8
+# Override the default (2) set by the upstream maven cookbook
+force_default['maven']['version'] = '3'
 
 default['cassandra']['twcs']['base_version'] = node['cassandra']['version'].split('.')[0...-1].join('.')
 default['cassandra']['twcs']['src_path'] = '/tmp/twcs-repo'
