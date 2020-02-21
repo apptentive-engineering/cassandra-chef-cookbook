@@ -21,6 +21,17 @@ package 'lzop'
 package 'pv'
 
 execute 'install cassandra_snapshotter' do
-  command 'pip install cassandra_snapshotter'
-  not_if 'pip list 2>/dev/null | grep -q cassandra-snapshotter'
+  command 'pip install cassandra_snapshotter==1.0.0'
+  not_if 'pip list 2>/dev/null | grep -q "cassandra-snapshotter (1.0.0)"'
 end
+
+execute 'install setuptools' do
+  command 'pip install setuptools==44.0.0'
+  not_if 'pip list 2>/dev/null | grep -q "setuptools (44.0.0)"'
+end
+
+execute 'install fabric' do
+  command 'pip install fabric==1.14.0'
+  not_if 'pip list 2>/dev/null | grep -q "Fabric (1.14.0)"'
+end
+
